@@ -1,0 +1,18 @@
+# Mac
+.DS_Store
+
+# Webstorm
+.idea/
+
+# Golang
+vendor/
+dist/
+
+# Terraform
+.terraform/
+*.tfstate*
+*.tfvars
+envs/
+
+# Worker files
+stack-processor/
