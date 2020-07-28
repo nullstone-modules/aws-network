@@ -1,7 +1,6 @@
 # block-aws-network
 
-Nullstone Block with network configured with public and private subnets across 3 AZs.
-IPv6 is enabled.
+Nullstone Block standing up an AWS network configured with IPv6 enabled, and public and private subnets across 3 AZs.
 
 ## Inputs
 
