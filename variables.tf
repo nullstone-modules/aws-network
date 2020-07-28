@@ -10,6 +10,10 @@ variable "block_name" {
   type = string
 }
 
+variable "parent_block" {
+  type = string
+}
+
 variable "env" {
   type = string
 }

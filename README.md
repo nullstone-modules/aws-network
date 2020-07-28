@@ -2,12 +2,6 @@
 
 Nullstone Block standing up an AWS network configured with IPv6 enabled, and public and private subnets across 3 AZs.
 
-## Global
-
-There are no global resources created.
-
-## Per Environment
-
 ## Inputs
 
 - `owner_id: string` - Stack Owner ID
