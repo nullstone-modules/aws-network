@@ -7,8 +7,7 @@ variable "stack_name" {
 }
 
 variable "block_name" {
-  type    = string
-  default = "network0"
+  type = string
 }
 
 variable "env" {
