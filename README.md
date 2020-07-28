@@ -6,7 +6,8 @@ Nullstone Block standing up an AWS network configured with IPv6 enabled, and pub
 
 - `owner_id: string` - Stack Owner ID
 - `stack_name: string` - Stack Name
-- `block_name: string` - Block Name (default: `network0`)
+- `block_name: string` - Block Name
+- `parent_block: string` - Parent Block
 - `env: string` - Environment Name
 - `backend_conn_str: string` - Connection string for postgres backend
 
