@@ -10,8 +10,10 @@ variable "block_name" {
   type = string
 }
 
-variable "parent_block" {
-  type = string
+// NOTE: This block requires no parent blocks
+variable "parent_blocks" {
+  type    = object({})
+  default = {}
 }
 
 variable "env" {
