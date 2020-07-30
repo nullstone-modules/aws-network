@@ -2,7 +2,7 @@ module "network" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.44.0"
 
-  name = "${var.stack_name}-${var.block_name}-${var.env}"
+  name = "${var.stack_name}-${var.env}-${var.block_name}"
 
   cidr = "10.0.0.0/16"
 
@@ -17,11 +17,12 @@ module "network" {
 
   tags = {
     Stack       = var.stack_name
-    Block       = var.block_name
     Environment = var.env
   }
 
   vpc_tags = {
-    Name = "${var.stack_name}-${var.block_name}-${var.env}"
+    Stack = var.stack_name
+    Environment = var.env
+    Block       = var.block_name
   }
 }
