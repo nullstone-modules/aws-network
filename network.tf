@@ -4,11 +4,12 @@ module "network" {
 
   name = "${var.stack_name}-${var.env}-${var.block_name}"
 
-  cidr = "10.0.0.0/16"
+  cidr = var.cidr
 
   azs             = data.aws_availability_zones.this.names
-  private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
-  public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+  private_subnets = var.private_subnets
+  public_subnets  = var.public_subnets
+  intra_subnets   = var.intra_subnets
 
   enable_ipv6 = true
 
@@ -21,7 +22,7 @@ module "network" {
   }
 
   vpc_tags = {
-    Stack = var.stack_name
+    Stack       = var.stack_name
     Environment = var.env
     Block       = var.block_name
   }
