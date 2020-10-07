@@ -29,3 +29,7 @@ output "intra_subnet_ids" {
 output "intra_cidrs" {
   value = module.network.intra_subnets_cidr_blocks
 }
+
+output "internal_zone_id" {
+  value = aws_route53_zone.internal.zone_id
+}
