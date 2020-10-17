@@ -58,7 +58,7 @@ resource "aws_vpc_endpoint" "ecr_api" {
   service_name       = data.aws_vpc_endpoint_service.ecr_api.service_name
   vpc_endpoint_type  = "Interface"
   security_group_ids = [aws_security_group_rule.allow_inside.id]
-  subnet_ids         = [module.network.private_subnets]
+  subnet_ids         = module.network.private_subnets
 }
 
 data "aws_vpc_endpoint_service" "ecr_dkr" {
@@ -70,7 +70,7 @@ resource "aws_vpc_endpoint" "ecr_dkr" {
   service_name       = data.aws_vpc_endpoint_service.ecr_dkr.service_name
   vpc_endpoint_type  = "Interface"
   security_group_ids = [aws_security_group_rule.allow_inside.id]
-  subnet_ids         = [module.network.private_subnets]
+  subnet_ids         = module.network.private_subnets
 }
 
 data "aws_vpc_endpoint_service" "secretsmanager" {
@@ -82,7 +82,7 @@ resource "aws_vpc_endpoint" "secretsmanager" {
   service_name       = data.aws_vpc_endpoint_service.secretsmanager.service_name
   vpc_endpoint_type  = "Interface"
   security_group_ids = [aws_security_group_rule.allow_inside.id]
-  subnet_ids         = [module.network.private_subnets]
+  subnet_ids         = module.network.private_subnets
 }
 
 data "aws_vpc_endpoint_service" "kms" {
@@ -94,5 +94,5 @@ resource "aws_vpc_endpoint" "kms" {
   service_name       = data.aws_vpc_endpoint_service.kms.service_name
   vpc_endpoint_type  = "Interface"
   security_group_ids = [aws_security_group_rule.allow_inside.id]
-  subnet_ids         = [module.network.private_subnets]
+  subnet_ids         = module.network.private_subnets
 }
