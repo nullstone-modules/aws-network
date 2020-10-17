@@ -31,7 +31,7 @@ module "network" {
 }
 
 resource "aws_security_group" "vpc_endpoints" {
-  name = "${var.stack_name}/${var.env}/${var.block_name}/vpc-endpoints"
+  name = "${var.stack_name}-${var.env}-${var.block_name}-vpc-endpoints"
 
   tags = {
     Stack       = var.stack_name
