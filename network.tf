@@ -31,7 +31,7 @@ module "network" {
 }
 
 resource "aws_security_group" "vpc_endpoints" {
-  name = "${var.stack_name}-${var.env}-${var.block_name}-vpc-endpoints"
+  name = "${var.stack_name}/${var.env}/${var.block_name}/vpc-endpoints"
 
   tags = {
     Stack       = var.stack_name
@@ -57,7 +57,7 @@ resource "aws_vpc_endpoint" "ecr_api" {
   vpc_id             = module.network.vpc_id
   service_name       = data.aws_vpc_endpoint_service.ecr_api.service_name
   vpc_endpoint_type  = "Interface"
-  security_group_ids = [aws_security_group_rule.allow_inside.id]
+  security_group_ids = [aws_security_group.vpc_endpoints.id]
   subnet_ids         = module.network.private_subnets
 }
 
@@ -69,7 +69,7 @@ resource "aws_vpc_endpoint" "ecr_dkr" {
   vpc_id             = module.network.vpc_id
   service_name       = data.aws_vpc_endpoint_service.ecr_dkr.service_name
   vpc_endpoint_type  = "Interface"
-  security_group_ids = [aws_security_group_rule.allow_inside.id]
+  security_group_ids = [aws_security_group.vpc_endpoints.id]
   subnet_ids         = module.network.private_subnets
 }
 
@@ -81,7 +81,7 @@ resource "aws_vpc_endpoint" "secretsmanager" {
   vpc_id             = module.network.vpc_id
   service_name       = data.aws_vpc_endpoint_service.secretsmanager.service_name
   vpc_endpoint_type  = "Interface"
-  security_group_ids = [aws_security_group_rule.allow_inside.id]
+  security_group_ids = [aws_security_group.vpc_endpoints.id]
   subnet_ids         = module.network.private_subnets
 }
 
@@ -93,6 +93,6 @@ resource "aws_vpc_endpoint" "kms" {
   vpc_id             = module.network.vpc_id
   service_name       = data.aws_vpc_endpoint_service.kms.service_name
   vpc_endpoint_type  = "Interface"
-  security_group_ids = [aws_security_group_rule.allow_inside.id]
+  security_group_ids = [aws_security_group.vpc_endpoints.id]
   subnet_ids         = module.network.private_subnets
 }
