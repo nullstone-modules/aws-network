@@ -18,6 +18,14 @@ module "network" {
   enable_nat_gateway = true
   single_nat_gateway = true
 
+  enable_s3_endpoint             = true
+  enable_ecr_api_endpoint        = true
+  enable_ecr_dkr_endpoint        = true
+  enable_ecs_endpoint            = true
+  enable_secretsmanager_endpoint = true
+  enable_ssm_endpoint            = true
+  enable_kms_endpoint            = true
+
   tags = {
     Stack       = var.stack_name
     Environment = var.env
