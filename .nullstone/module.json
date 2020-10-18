@@ -1,0 +1,82 @@
+{
+  "type": "",
+  "layer": "network",
+  "needs": {},
+  "providers": ["aws"],
+  "outputs": {
+    "vpc_id": {
+      "type": "string",
+      "sensitive": false
+    },
+    "vpc_cidr": {
+      "type": "string",
+      "sensitive": false
+    },
+    "intra_cidrs": {
+      "type": "list(string)",
+      "sensitive": false
+    },
+    "public_cidrs": {
+      "type": "list(string)",
+      "sensitive": false
+    },
+    "private_cidrs": {
+      "type": "list(string)",
+      "sensitive": false
+    },
+    "internal_zone_id": {
+      "type": "list(string)",
+      "sensitive": false
+    },
+    "intra_subnet_ids": {
+      "type": "list(string)",
+      "sensitive": false
+    },
+    "public_subnet_ids": {
+      "type": "list(string)",
+      "sensitive": false
+    },
+    "private_subnet_ids": {
+      "type": "list(string)",
+      "sensitive": false
+    }
+  },
+  "variables": {
+    "cidr": {
+      "type": "string",
+      "default": "10.0.0.0/16",
+      "required": false,
+      "sensitive": false,
+      "description": ""
+    },
+    "intra_subnets": {
+      "type": "list(string)",
+      "default": [],
+      "required": false,
+      "sensitive": false,
+      "description": ""
+    },
+    "public_subnets": {
+      "type": "list(string)",
+      "default": [
+        "10.0.101.0/24",
+        "10.0.102.0/24",
+        "10.0.103.0/24"
+      ],
+      "required": false,
+      "sensitive": false,
+      "description": ""
+    },
+    "private_subnets": {
+      "type": "list(string)",
+      "default": [
+        "10.0.1.0/24",
+        "10.0.2.0/24",
+        "10.0.3.0/24"
+      ],
+      "required": false,
+      "sensitive": false,
+      "description": ""
+    }
+  }
+}
