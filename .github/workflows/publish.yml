@@ -1,0 +1,28 @@
+name: Nullstone
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Package files into tgz
+      - name: Package
+        run: tar -cvzf module.tgz *.tf
+
+      # Publish to nullstone
+      - name: Publish
+        run: |-
+          curl -XPOST -F "file=@module.tgz" -H "X-Nullstone-Key: ${{ secrets.NULLSTONE_API_KEY }}" \
+            https://api.nullstone.io/orgs/nullstone/modules/aws-network/versions?version=$(cat VERSION)
