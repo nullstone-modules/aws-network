@@ -1,18 +1,3 @@
-variable "owner_id" {
-  type = string
-}
-
-// NOTE: This block requires no parent blocks
-variable "parent_blocks" {
-  type    = object({})
-  default = {}
-}
-
-variable "backend_conn_str" {
-  type = string
-}
-
-
 variable "cidr" {
   type        = string
   description = "Internal network range for entire VPC."
