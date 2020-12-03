@@ -18,12 +18,7 @@ module "network" {
   enable_nat_gateway = true
   single_nat_gateway = true
 
-  tags = {
-    Stack       = data.ns_workspace.this.stack
-    Environment = data.ns_workspace.this.env
-  }
-
-  vpc_tags = data.ns_workspace.this.tags
+  tags = data.ns_workspace.this.tags
 }
 
 resource "aws_security_group" "vpc_endpoints" {
