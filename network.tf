@@ -2,7 +2,7 @@ module "network" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.44.0"
 
-  name = "${var.stack_name}-${var.env}-${var.block_name}"
+  name = data.ns_workspace.this.hyphenated_name
 
   cidr = var.cidr
 
@@ -18,27 +18,14 @@ module "network" {
   enable_nat_gateway = true
   single_nat_gateway = true
 
-  tags = {
-    Stack       = var.stack_name
-    Environment = var.env
-  }
-
-  vpc_tags = {
-    Stack       = var.stack_name
-    Environment = var.env
-    Block       = var.block_name
-  }
+  tags = data.ns_workspace.this.tags
 }
 
 resource "aws_security_group" "vpc_endpoints" {
-  name   = "${var.stack_name}/${var.env}/${var.block_name}/vpc-endpoints"
+  name   = "${data.ns_workspace.this.slashed_name}/vpc-endpoints"
   vpc_id = module.network.vpc_id
 
-  tags = {
-    Stack       = var.stack_name
-    Environment = var.env
-    Block       = var.block_name
-  }
+  tags = data.ns_workspace.this.tags
 }
 
 resource "aws_security_group_rule" "allow_inside" {
