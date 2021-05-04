@@ -21,3 +21,14 @@ variable "intra_subnets" {
   description = "Network ranges for intra subnets created in the VPC. Devices in intra subnets cannot access the internet directly."
   default     = []
 }
+resource "random_string" "resource_suffix" {
+  length  = 5
+  lower   = true
+  upper   = false
+  number  = false
+  special = false
+}
+
+locals {
+  resource_name = "${data.ns_workspace.this.block}-${random_string.resource_suffix.result}"
+}
