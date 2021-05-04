@@ -2,7 +2,7 @@ module "network" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.44.0"
 
-  name = data.ns_workspace.this.hyphenated_name
+  name = local.resource_name
 
   cidr = var.cidr
 
@@ -22,10 +22,9 @@ module "network" {
 }
 
 resource "aws_security_group" "vpc_endpoints" {
-  name   = "${data.ns_workspace.this.slashed_name}/vpc-endpoints"
+  name   = "vpc-endpoints/${local.resource_name}"
   vpc_id = module.network.vpc_id
-
-  tags = data.ns_workspace.this.tags
+  tags   = data.ns_workspace.this.tags
 }
 
 resource "aws_security_group_rule" "allow_inside" {
