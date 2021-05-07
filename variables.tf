@@ -21,6 +21,15 @@ variable "intra_subnets" {
   description = "Network ranges for intra subnets created in the VPC. Devices in intra subnets cannot access the internet directly."
   default     = []
 }
+
+variable "service_namespace" {
+  type        = string
+  description = <<EOF
+Private DNS Domain to register in the network that is used to attach dynamically allocated services. (e.g. containers)
+EOF
+  default     = "service"
+}
+
 resource "random_string" "resource_suffix" {
   length  = 5
   lower   = true
