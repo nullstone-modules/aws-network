@@ -14,6 +14,11 @@ variable "private_subnets" {
   type        = list(string)
   description = "Network ranges for private subnets created in the VPC. Devices in private subnets communicate to internet through a NAT Gateway."
   default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+
+  validation {
+    condition     = length(var.private_subnets) >= 3
+    error_message = "A network requires at least 3 private subnets for other AWS services to function properly."
+  }
 }
 
 variable "intra_subnets" {
@@ -28,4 +33,13 @@ variable "service_namespace" {
 Private DNS Domain to register in the network that is used to attach dynamically allocated services. (e.g. containers)
 EOF
   default     = "service"
+}
+
+variable "enable_vpc_endpoints" {
+  type        = bool
+  default     = false
+  description = <<EOF
+Enable secure communication to encryption keys, secrets, and docker images.
+This adds ~$1/day for each private subnet, ~$90/month for 3 subnets.
+EOF
 }
