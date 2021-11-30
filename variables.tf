@@ -29,3 +29,12 @@ Private DNS Domain to register in the network that is used to attach dynamically
 EOF
   default     = "service"
 }
+
+variable "enable_vpc_endpoints" {
+  type        = bool
+  default     = false
+  description = <<EOF
+Enable secure communication to encryption keys, secrets, and docker images.
+This adds ~$1/day for each private subnet, ~$90/month for 3 subnets.
+EOF
+}

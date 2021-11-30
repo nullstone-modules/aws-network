@@ -24,6 +24,8 @@ resource "aws_vpc_endpoint" "ecr_api" {
   security_group_ids = [aws_security_group.vpc_endpoints.id]
   subnet_ids         = module.network.private_subnets
   tags               = local.tags
+
+  count = var.enable_vpc_endpoints ? 1 : 0
 }
 
 data "aws_vpc_endpoint_service" "ecr_dkr" {
@@ -37,6 +39,8 @@ resource "aws_vpc_endpoint" "ecr_dkr" {
   security_group_ids = [aws_security_group.vpc_endpoints.id]
   subnet_ids         = module.network.private_subnets
   tags               = local.tags
+
+  count = var.enable_vpc_endpoints ? 1 : 0
 }
 
 data "aws_vpc_endpoint_service" "secretsmanager" {
@@ -50,6 +54,8 @@ resource "aws_vpc_endpoint" "secretsmanager" {
   security_group_ids = [aws_security_group.vpc_endpoints.id]
   subnet_ids         = module.network.private_subnets
   tags               = local.tags
+
+  count = var.enable_vpc_endpoints ? 1 : 0
 }
 
 data "aws_vpc_endpoint_service" "kms" {
@@ -63,4 +69,6 @@ resource "aws_vpc_endpoint" "kms" {
   security_group_ids = [aws_security_group.vpc_endpoints.id]
   subnet_ids         = module.network.private_subnets
   tags               = local.tags
+
+  count = var.enable_vpc_endpoints ? 1 : 0
 }
