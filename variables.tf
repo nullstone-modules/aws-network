@@ -10,7 +10,7 @@ variable "public_subnets" {
   default     = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 
   validation {
-    condition     = length(var.private_subnets) >= 2
+    condition     = length(var.public_subnets) >= 2
     error_message = "A network requires at least 2 public subnets for public-facing AWS services to function properly."
   }
 }
