@@ -1,0 +1,10 @@
+org_name: nullstone
+name: aws-network
+friendly_name: Network
+description: Creates a standard, best-practice network in AWS
+category: block
+type: network/aws
+layer: network
+is_public: true
+provider_types:
+    - aws
