@@ -52,3 +52,8 @@ output "service_discovery_name" {
   value       = aws_service_discovery_private_dns_namespace.service.name
   description = "string ||| The root TLD for the Private DNS namespace created in this network."
 }
+
+output "nat_public_ips" {
+  value       = module.network.nat_public_ips
+  description = "string ||| A list of IP addresses that are attached to NAT Gateways that allow traffic from private resources to the internet."
+}
