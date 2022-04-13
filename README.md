@@ -1,6 +1,18 @@
-# block-aws-network
+# aws-network
 
-Nullstone Block standing up an AWS network configured with IPv6 enabled, and public, private, and intra subnets across 3 AZs.
+Nullstone module to create an AWS network configured with IPv6 enabled, and public, private, and intra subnets across 3 AZs.
+
+## Security & Compliance
+
+Security scanning is graciously provided by Bridgecrew. Bridgecrew is the leading fully hosted, cloud-native solution providing continuous Terraform security and compliance.
+
+[![Infrastructure Security](https://www.bridgecrew.cloud/badges/github/nullstone-modules/aws-network/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=nullstone-modules%2Faws-network&benchmark=INFRASTRUCTURE+SECURITY)
+[![CIS AWS V1.3](https://www.bridgecrew.cloud/badges/github/nullstone-modules/aws-network/cis_aws_13)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=nullstone-modules%2Faws-network&benchmark=CIS+AWS+V1.3)
+[![PCI-DSS V3.2](https://www.bridgecrew.cloud/badges/github/nullstone-modules/aws-network/pci)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=nullstone-modules%2Faws-network&benchmark=PCI-DSS+V3.2)
+[![NIST-800-53](https://www.bridgecrew.cloud/badges/github/nullstone-modules/aws-network/nist)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=nullstone-modules%2Faws-network&benchmark=NIST-800-53)
+[![ISO27001](https://www.bridgecrew.cloud/badges/github/nullstone-modules/aws-network/iso)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=nullstone-modules%2Faws-network&benchmark=ISO27001)
+[![SOC2](https://www.bridgecrew.cloud/badges/github/nullstone-modules/aws-network/soc2)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=nullstone-modules%2Faws-network&benchmark=SOC2)
+[![HIPAA](https://www.bridgecrew.cloud/badges/github/nullstone-modules/aws-network/hipaa)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=nullstone-modules%2Faws-network&benchmark=HIPAA)
 
 ## Inputs
 
