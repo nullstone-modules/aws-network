@@ -1,6 +1,5 @@
 module "network" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "3.1.0"
+  source = "./vpc"
 
   name = local.resource_name
   tags = local.tags

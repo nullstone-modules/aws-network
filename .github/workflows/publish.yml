@@ -17,13 +17,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Run Bridgecrew
+        id: Bridgecrew
+        uses: bridgecrewio/bridgecrew-action@master
+        with:
+          api-key: ${{ secrets.BC_API_KEY }}
+
       - name: Find version
         id: version
         run: echo ::set-output name=tag::${GITHUB_REF#refs/tags/v}
 
       # Package files into tgz
       - name: Package
-        run: tar -cvzf module.tgz *.tf
+        run: tar -cvzf module.tgz *.tf vpc/*.tf
 
       # Publish to nullstone
       - name: Publish
