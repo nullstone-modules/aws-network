@@ -14,6 +14,12 @@ Security scanning is graciously provided by Bridgecrew. Bridgecrew is the leadin
 [![SOC2](https://www.bridgecrew.cloud/badges/github/nullstone-modules/aws-network/soc2)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=nullstone-modules%2Faws-network&benchmark=SOC2)
 [![HIPAA](https://www.bridgecrew.cloud/badges/github/nullstone-modules/aws-network/hipaa)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=nullstone-modules%2Faws-network&benchmark=HIPAA)
 
+#### Notes on Security
+
+This module skips the compliance check for VPC Flow Logs.
+This is done because VPC Flow Logs greatly increase your AWS bill as your volume of network traffic increases.
+If you require this compliance, add a supplemental Nullstone block to enable VPC Flow Logs.
+
 ## Inputs
 
 - `cidr: string`
