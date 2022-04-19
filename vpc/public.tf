@@ -6,7 +6,6 @@ resource "aws_subnet" "public" {
   availability_zone               = element(var.azs, count.index)
   assign_ipv6_address_on_creation = false
   map_public_ip_on_launch         = false
-  map_customer_owned_ip_on_launch = false
 
   tags = merge({ "Name" = format("%s-public-%s", var.name, element(var.azs, count.index)) }, var.tags)
 }

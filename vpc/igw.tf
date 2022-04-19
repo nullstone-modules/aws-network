@@ -18,7 +18,7 @@ resource "aws_route" "public_internet_gateway" {
 }
 
 resource "aws_egress_only_internet_gateway" "this" {
-  count = var.enable_ipv6
+  count = var.enable_ipv6 ? 1 : 0
 
   vpc_id = aws_vpc.this[0].id
   tags   = merge({ "Name" = format("%s", var.name) }, var.tags)
