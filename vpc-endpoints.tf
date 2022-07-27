@@ -1,5 +1,5 @@
 resource "aws_security_group" "vpc_endpoints" {
-  name        = "vpc-endpoints/${local.resource_name}"
+  name_prefix  = "vpc-endpoints/${local.block_name}"
   vpc_id      = module.network.vpc_id
   tags        = local.tags
   description = "Security group attached to every VPC endpoint"
