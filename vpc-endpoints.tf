@@ -3,6 +3,10 @@ resource "aws_security_group" "vpc_endpoints" {
   vpc_id      = module.network.vpc_id
   tags        = local.tags
   description = "Security group attached to every VPC endpoint"
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_security_group_rule" "allow_inside" {
