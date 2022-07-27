@@ -32,6 +32,7 @@ jobs:
         run: tar -cvzf module.tgz *.tf vpc/*.tf
 
       # Publish to nullstone
+      #bridgecrew:skip=CKV_GHA_3: Skipping insecure curl
       - name: Publish
         env:
           NULLSTONE_ORG: nullstone
