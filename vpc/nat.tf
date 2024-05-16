@@ -3,10 +3,11 @@ locals {
 }
 
 resource "aws_eip" "nat" {
+  #bridgecrew:skip=BC_AWS_NETWORKING_48:False positive. This EIP is attached to a NAT gateway instead of an EC2 instance.
   count = var.enable_nat_gateway ? local.nat_gateway_count : 0
 
-  vpc  = true
-  tags = merge({ "Name" = format("%s-%s", var.name, element(var.azs, var.single_nat_gateway ? 0 : count.index)) }, var.tags)
+  domain = "vpc"
+  tags   = merge({ "Name" = format("%s-%s", var.name, element(var.azs, var.single_nat_gateway ? 0 : count.index)) }, var.tags)
 }
 
 resource "aws_nat_gateway" "this" {

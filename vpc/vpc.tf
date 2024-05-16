@@ -7,8 +7,7 @@ resource "aws_vpc" "this" {
   enable_dns_hostnames             = var.enable_dns_hostnames
   enable_dns_support               = var.enable_dns_support
   assign_generated_ipv6_cidr_block = var.enable_ipv6
-  enable_classiclink_dns_support   = false
-  tags                             = var.tags
+  tags                             = merge(var.tags, { "Name" = var.name })
 }
 
 resource "aws_default_security_group" "this" {
